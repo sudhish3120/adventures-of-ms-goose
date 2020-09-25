@@ -1,4 +1,3 @@
-let red_test: Sprite = null
 let Cars: Sprite = null
 scene.setBackgroundColor(7)
 let goose = sprites.create(img`
@@ -38,24 +37,7 @@ game.onUpdateInterval(500, function () {
         . . . f e 2 d e e e e d 2 e f . 
         . . . f f e e e e e e e e f f . 
         . . . . f f . . . . . . f f . . 
-        `, SpriteKind.Player)
-    Cars.setPosition(66, 13)
-    red_test = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 2 2 2 . . . . . . 
-        . . . . . 2 2 2 2 2 2 2 . . . . 
-        . . . . . 2 2 2 2 2 2 2 2 . . . 
-        . . . . 2 2 2 2 2 2 2 2 . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . 2 2 2 2 2 2 2 2 2 2 . . . 
-        . . . 2 2 2 2 2 2 2 2 2 2 . . . 
-        . . . 2 2 2 2 2 2 2 2 2 2 . . . 
-        . . . 2 2 2 2 2 2 2 2 2 2 . . . 
-        . . . 2 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . . 2 2 2 2 2 2 2 . . . . 
-        . . . . . . . . . 2 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.Enemy)
+    Cars.setPosition(randint(0, 160), 0)
+    Cars.setVelocity(0, 30)
 })
