@@ -147,6 +147,7 @@ info.onCountdownEnd(function () {
         `)
 })
 info.onLifeZero(function () {
+    game.over(false, effects.clouds)
     scene.setBackgroundImage(img`
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
@@ -304,70 +305,28 @@ goose = sprites.create(img`
     `, SpriteKind.Player)
 goose.setPosition(76, 122)
 scene.cameraFollowSprite(goose)
-controller.moveSprite(goose, 100, 100)
+controller.moveSprite(goose, 100, 0)
 info.startCountdown(60)
 info.setLife(3)
 goose.setFlag(SpriteFlag.StayInScreen, true)
 tiles.setTilemap(tiles.createTilemap(hex`0a00100001000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001`, img`
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    `, [myTiles.transparency16,sprites.castle.tileGrass2], TileScale.Sixteen))
-game.onUpdateInterval(2000, function () {
-    Tiles = sprites.create(img`
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        `, SpriteKind.Harmless)
-    Tiles.setPosition(53, 0)
-    Tiles.setVelocity(0, 30)
-    otherSprite = sprites.create(img`
-        . . . . . . e e c c e e . . . . 
-        . . . . . e 2 2 2 2 2 2 e . . . 
-        . . . . 2 c 2 2 2 2 2 2 c 2 . . 
-        . . . e 2 c 4 2 2 2 2 2 c 2 e . 
-        . . . f 2 2 4 2 2 2 2 2 c 2 f . 
-        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
-        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
-        . . . f 2 c 2 4 4 2 2 2 c 2 f . 
-        . . . e 2 c e c c c c e c 2 e . 
-        . . . e 2 e c b b b b c e 2 e . 
-        . . . e 2 e b b b b b b e 2 e . 
-        . . . e e e e e e e e e e e e . 
-        . . . f e d e e e e e e d e f . 
-        . . . f e 2 d e e e e d 2 e f . 
-        . . . f f e e e e e e e e f f . 
-        . . . . f f . . . . . . f f . . 
-        `, SpriteKind.Enemy)
-    otherSprite.setPosition(randint(10, 80), 0)
-    otherSprite.setVelocity(0, 30)
-})
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    2 . . . . . . . . 2 
+    `, [myTiles.transparency16,sprites.castle.tileGrass3], TileScale.Sixteen))
 game.onUpdateInterval(2000, function () {
     Tiles = sprites.create(img`
         . . . . 1 1 1 1 1 1 1 1 . . . . 
@@ -407,6 +366,48 @@ game.onUpdateInterval(2000, function () {
         . . . f f 8 8 8 8 8 8 8 8 f f . 
         . . . . f f . . . . . . f f . . 
         `, SpriteKind.Enemy)
-    otherSprite.setPosition(randint(80, 150), 0)
+    otherSprite.setPosition(randint(80, 140), 0)
+    otherSprite.setVelocity(0, 30)
+})
+game.onUpdateInterval(2000, function () {
+    Tiles = sprites.create(img`
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        `, SpriteKind.Harmless)
+    Tiles.setPosition(53, 0)
+    Tiles.setVelocity(0, 30)
+    otherSprite = sprites.create(img`
+        . . . . . . e e c c e e . . . . 
+        . . . . . e 2 2 2 2 2 2 e . . . 
+        . . . . 2 c 2 2 2 2 2 2 c 2 . . 
+        . . . e 2 c 4 2 2 2 2 2 c 2 e . 
+        . . . f 2 2 4 2 2 2 2 2 c 2 f . 
+        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
+        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
+        . . . f 2 c 2 4 4 2 2 2 c 2 f . 
+        . . . e 2 c e c c c c e c 2 e . 
+        . . . e 2 e c b b b b c e 2 e . 
+        . . . e 2 e b b b b b b e 2 e . 
+        . . . e e e e e e e e e e e e . 
+        . . . f e d e e e e e e d e f . 
+        . . . f e 2 d e e e e d 2 e f . 
+        . . . f f e e e e e e e e f f . 
+        . . . . f f . . . . . . f f . . 
+        `, SpriteKind.Enemy)
+    otherSprite.setPosition(randint(20, 80), 0)
     otherSprite.setVelocity(0, 30)
 })
