@@ -347,7 +347,7 @@ game.onUpdateInterval(1000, function () {
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         `, SpriteKind.Harmless)
-    Tiles.setPosition(107, 0)
+    Tiles.setPosition(80, 0)
     Tiles.setVelocity(0, 25)
     otherSprite = sprites.create(img`
         . . . . . . 8 8 c c 8 8 . . . . 
@@ -371,26 +371,6 @@ game.onUpdateInterval(1000, function () {
     otherSprite.setVelocity(0, 30)
 })
 game.onUpdateInterval(1000, function () {
-    Tiles = sprites.create(img`
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        . . . . 1 1 1 1 1 1 1 1 . . . . 
-        `, SpriteKind.Harmless)
-    Tiles.setPosition(53, 0)
-    Tiles.setVelocity(0, 25)
     otherSprite = sprites.create(img`
         . . . . . . e e c c e e . . . . 
         . . . . . e 2 2 2 2 2 2 e . . . 
