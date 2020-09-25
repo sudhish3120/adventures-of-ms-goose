@@ -19,7 +19,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, goose, 0, -50)
+        `, goose, 0, -35)
 })
 info.onCountdownEnd(function () {
     game.over(true, effects.confetti)
@@ -328,7 +328,7 @@ tiles.setTilemap(tiles.createTilemap(hex`0a0010000000000000000000000000000000000
     2 . . . . . . . . 2 
     2 . . . . . . . . 2 
     `, [myTiles.transparency16], TileScale.Sixteen))
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(1000, function () {
     Tiles = sprites.create(img`
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         . . . . 1 1 1 1 1 1 1 1 . . . . 
@@ -348,7 +348,7 @@ game.onUpdateInterval(2000, function () {
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         `, SpriteKind.Harmless)
     Tiles.setPosition(107, 0)
-    Tiles.setVelocity(0, 30)
+    Tiles.setVelocity(0, 25)
     otherSprite = sprites.create(img`
         . . . . . . 8 8 c c 8 8 . . . . 
         . . . . . 8 6 6 6 6 6 6 8 . . . 
@@ -370,7 +370,7 @@ game.onUpdateInterval(2000, function () {
     otherSprite.setPosition(randint(80, 135), 0)
     otherSprite.setVelocity(0, 30)
 })
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(1000, function () {
     Tiles = sprites.create(img`
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         . . . . 1 1 1 1 1 1 1 1 . . . . 
