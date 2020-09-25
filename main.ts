@@ -367,7 +367,7 @@ game.onUpdateInterval(2000, function () {
         . . . f f 8 8 8 8 8 8 8 8 f f . 
         . . . . f f . . . . . . f f . . 
         `, SpriteKind.Enemy)
-    otherSprite.setPosition(randint(80, 140), 0)
+    otherSprite.setPosition(randint(80, 135), 0)
     otherSprite.setVelocity(0, 30)
 })
 game.onUpdateInterval(2000, function () {
@@ -390,7 +390,7 @@ game.onUpdateInterval(2000, function () {
         . . . . 1 1 1 1 1 1 1 1 . . . . 
         `, SpriteKind.Harmless)
     Tiles.setPosition(53, 0)
-    Tiles.setVelocity(0, 30)
+    Tiles.setVelocity(0, 25)
     otherSprite = sprites.create(img`
         . . . . . . e e c c e e . . . . 
         . . . . . e 2 2 2 2 2 2 e . . . 
