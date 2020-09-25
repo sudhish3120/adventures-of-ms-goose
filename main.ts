@@ -280,6 +280,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     otherSprite.destroy(effects.fire, 100)
     info.changeLifeBy(-1)
 })
+let grass: Sprite = null
 let otherSprite: Sprite = null
 let Tiles: Sprite = null
 let projectile: Sprite = null
@@ -309,7 +310,7 @@ controller.moveSprite(goose, 100, 0)
 info.startCountdown(60)
 info.setLife(3)
 goose.setFlag(SpriteFlag.StayInScreen, true)
-tiles.setTilemap(tiles.createTilemap(hex`0a00100001000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001010000000000000000010100000000000000000101000000000000000001`, img`
+tiles.setTilemap(tiles.createTilemap(hex`0a00100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
     2 . . . . . . . . 2 
     2 . . . . . . . . 2 
     2 . . . . . . . . 2 
@@ -326,7 +327,7 @@ tiles.setTilemap(tiles.createTilemap(hex`0a0010000100000000000000000101000000000
     2 . . . . . . . . 2 
     2 . . . . . . . . 2 
     2 . . . . . . . . 2 
-    `, [myTiles.transparency16,sprites.castle.tileGrass3], TileScale.Sixteen))
+    `, [myTiles.transparency16], TileScale.Sixteen))
 game.onUpdateInterval(2000, function () {
     Tiles = sprites.create(img`
         . . . . 1 1 1 1 1 1 1 1 . . . . 
@@ -410,4 +411,48 @@ game.onUpdateInterval(2000, function () {
         `, SpriteKind.Enemy)
     otherSprite.setPosition(randint(20, 80), 0)
     otherSprite.setVelocity(0, 30)
+})
+game.onUpdateInterval(500, function () {
+    grass = sprites.create(img`
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 6 7 7 7 7 7 7 7 5 7 7 7 7 7 
+        7 7 7 7 7 6 7 7 7 7 7 5 7 5 5 7 
+        7 7 5 5 5 7 7 7 7 7 7 7 5 5 7 7 
+        7 7 7 5 7 7 7 7 7 7 7 7 5 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 6 7 7 7 7 7 6 7 
+        6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 6 5 7 5 5 7 7 7 
+        7 7 7 6 7 7 7 7 7 5 5 5 7 7 7 7 
+        7 7 7 5 5 5 7 7 7 7 7 5 7 7 7 7 
+        7 7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 
+        7 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 5 5 5 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        `, SpriteKind.Harmless)
+    grass.setPosition(8, 0)
+    grass.setVelocity(0, 50)
+})
+game.onUpdateInterval(500, function () {
+    grass = sprites.create(img`
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 6 7 7 7 7 7 7 7 5 7 7 7 7 7 
+        7 7 7 7 7 6 7 7 7 7 7 5 7 5 5 7 
+        7 7 5 5 5 7 7 7 7 7 7 7 5 5 7 7 
+        7 7 7 5 7 7 7 7 7 7 7 7 5 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 6 7 7 7 7 7 6 7 
+        6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 6 5 7 5 5 7 7 7 
+        7 7 7 6 7 7 7 7 7 5 5 5 7 7 7 7 
+        7 7 7 5 5 5 7 7 7 7 7 5 7 7 7 7 
+        7 7 7 7 5 7 7 7 7 7 7 7 7 7 7 7 
+        7 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 5 5 5 7 7 7 
+        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+        `, SpriteKind.Harmless)
+    grass.setPosition(152, 0)
+    grass.setVelocity(0, 50)
 })
