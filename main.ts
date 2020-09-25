@@ -19,7 +19,7 @@ let goose = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 goose.setPosition(80, 110)
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(1000, function () {
     Cars = sprites.create(img`
         . . . . . . e e c c e e . . . . 
         . . . . . e 2 2 2 2 2 2 e . . . 
